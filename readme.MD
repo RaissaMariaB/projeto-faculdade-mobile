@@ -1,11 +1,11 @@
-# Projeto Ciclo de vida de uma Activity
+# Projeto Ciclo de vida de uma Activity 🤳
 Olá!
 Somos um grupo de alunos da Faculdade Nova Roma Campus Recife :))
 
 Estamos criando esse projeto com intuito de destrinchar, explicar e exemplificar o conceito de maior
 base em uma aplicação android 
 <br/>
-:star A Activity e seu ciclo de vida :star
+🌟 A Activity e seu ciclo de vida 🌟
 
 Ela se destaca como um pilar central, desempenhando um papel crucial na criação de interfaces de 
 usuário interativas. <br/>
@@ -30,19 +30,19 @@ usuário interativas. <br/>
 
 Este grupo é composto pelos alunos:
 
-Raissa Maria Silva Barata Pereira :spark
+Raissa Maria Silva Barata Pereira ✨
 - E-mail: raissaamria.sb@gmail.com
 - [LinkedIn](https://www.linkedin.com/in/raissa-barata-pereira)
 - [GitHub](https://github.com/RaissaMariaB)
 <br>
 
-Laila Maria Silva Pereira :spark
+Laila Maria Silva Pereira ✨
 - E-mail: raissaamria.sb@gmail.com
 - [LinkedIn](https://www.linkedin.com/in/raissa-barata-pereira)
 - [GitHub](https://github.com/RaissaMariaB)
 <br>
 
-Dyeggo Bezerra :spark
+Dyeggo Bezerra ✨
 - E-mail: raissaamria.sb@gmail.com
 - [LinkedIn](https://www.linkedin.com/in/raissa-barata-pereira)
 - [GitHub](https://github.com/RaissaMariaB)
@@ -54,9 +54,10 @@ Dyeggo Bezerra :spark
 Se fossemos trazer de uma forma muito resumida, poderíamos dizer que uma activity é uma tela,
 onde temos os componentes de texto, botões, menus, entre outros.
 
-Mas para uma activity estar completa ela precisa ser composta por uma classe Kotlin de um arquivo Kotlin,
-que é class MainActivity e um arquivo XML.
-A combinação desses dois forma uma activity nós usamos essa tela, essa "atividade" para fazer algo:
+Mas para uma activity estar completa ela precisa ser composta pela combinação de uma classe Kotlin dentro de um arquivo Kotlin,
+e também de um arquivo XML.
+A combinação desses dois forma uma activity e nós usamos essa tela, (traduzindo livremente para "atividade") para fazer algo
+que envolva a interação do usuário
 A pesar de ser possível criar um arquivo sem o outro, não é algo rotineiro nem usual de ser feito.
 <br/>
 <img src='./assets/activity1.png '>
@@ -64,7 +65,7 @@ A pesar de ser possível criar um arquivo sem o outro, não é algo rotineiro ne
 Dica! Como boas prática na nomenclatura de uma activity, colocamos o nome activity ao fim. 
 Ex: detalhesActivity
 
-Um aplicativo pode ter várias Activities para diferentes propósitos, como criar um email ou ler um email.
+Um aplicativo pode ter várias Activities para diferentes propósitos, como por exemplo criar um email ou ler um email.
 E apesar de operarem de forma independente, elas trabalham juntas para formar a experiência do usuário.
 O gerenciamento eficaz do ciclo de vida de uma Activity permite que os aplicativos se comportem de
 maneira previsível durante eventos como rotações de tela, garantindo que o
@@ -74,22 +75,24 @@ estado do aplicativo seja mantido de forma consistente.
 
 <img src='./assets/configurations.png '>
 
-- O primeiro campo Define o nome da sua activity, que como foi citado anteriormente temos como
+- O primeiro campo Define o nome da sua activity. Como foi citado anteriormente, temos como
 prática manter o nome activity no fim.
-- A primeira marcação de checkBox indica que vamos criar nosso arquivo de layout XML em conjunto
-- O campo layout name indica o nome desse arquivo de layout que está sendo criado
-- O segundo checkBox com "Launcher Activity" em questão, indica que essa será a primiera activity 
+- A primeira marcação de checkBox indica que vamos criar nosso arquivo de layout XML em conjunto.
+- O campo "layout name" indica o nome desse arquivo de layout que está sendo criado.
+- O segundo checkBox com "Launcher Activity", indica que essa será a primiera activity 
 chamada para a abertura do seu aplicativo.
-- No dropdown de package name podemos selecionar o local do dosso projeto onde aquela activity será criada
-- A campo de source language permite a escolha da linguagem a ser utilizada, que como sabemos, pode ser kotlin ou java.
+- No dropdown de "package name" podemos selecionar o local do dosso projeto onde aquela activity será criada.
+- A campo de source language permite a escolha da linguagem a ser utilizada,pois em um projeto android, pode ser kotlin e/ou java.
 
 
-## Imagem com diagrama, detalhes e  estados do ciclo de vida de uma acitvity
+## Imagem com diagrama, detalhes e estados do ciclo de vida de uma acitvity
 
 O ciclo de vida de uma Activity no Android é um conjunto de estados pelos quais a Activity passa 
 desde o momento de sua criação até sua destruição. Esses estados são gerenciados por callbacks que 
-o sistema chama, permitindo que o desenvolvedor saiba que estado a Activity está e prepare a 
-aplicação para executar certas ações.
+o sistema chama, permitindo que o desenvolvedor saiba qual estado a Activity está e prepare a 
+aplicação para executar certas ações. Entender como as Activities são criadas, pausadas, 
+retomadas e destruídas é cruacial para criar uma navegação eficiente.
+
 
 
 
@@ -120,15 +123,6 @@ aplicação para executar certas ações.
 - onStop(): Activity não mais visível
 - onRestart(): Preparando para retomar uma activity
 - onDestroy(): Limpeza final de uma activity
-
-
-## Informações gerais sobre o projeto
-
-- Nós temos básica de apenas duas telas 
-- Este projeto tem como objetivo mostrar a linha do tempo que a execução dos métodos do ciclo de 
-vida de uma activity ocorrem.
-- Essa verificação ocorre com a sobrescrita dos métodos do ciclo de vida que executan Info logs.
-- Você pode baixar e executar tranquilamente na sua máquina, verificando esses ciclos.
 
 
 ## Como ocorre o gerenciamento de estados em uma activity - salvando e restaurando esse estado
@@ -162,4 +156,16 @@ Ciclo de Vida
 
 - Este método é chamado depois de onStart() quando existe um estado salvo para ser restaurado, mas não é amplamente usado porque a restauração geralmente é feita dentro de onCreate().
 
+
 ## Navegação entre activities
+
+
+
+## Informações gerais sobre o projeto
+
+- Nós temos básica de apenas duas telas 
+- Este projeto tem como objetivo mostrar a linha do tempo que a execução dos métodos do ciclo de 
+vida de uma activity ocorrem.
+- Essa verificação ocorre com a sobrescrita dos métodos do ciclo de vida que executan Info logs.
+- Você pode baixar e executar tranquilamente na sua máquina, verificando esses ciclos.
+
