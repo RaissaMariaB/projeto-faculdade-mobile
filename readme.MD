@@ -15,7 +15,7 @@ usuário interativas. <br/>
 1. Introdução 
 2. Diagramas e estados do ciclo de vida 
 3. Métodos do ciclo de vida 
-4. Como ocorre o gerenciamnete de estados em uma activity - salvando e restaurando esse estado
+4. Como ocorre o gerenciamento de estados em uma activity - salvando e restaurando esse estado
 5. Navegação entre activities 
 6. Melhores práticas - Uso de Fragments para uma gestão flexível de UI
 7. Vídeo gravado pelos alunos com monitoramento via LogCat da sobrescrita dos métodos do ciclo de vida para análise em um aplicativo real
@@ -130,3 +130,36 @@ vida de uma activity ocorrem.
 - Essa verificação ocorre com a sobrescrita dos métodos do ciclo de vida que executan Info logs.
 - Você pode baixar e executar tranquilamente na sua máquina, verificando esses ciclos.
 
+
+## Como ocorre o gerenciamento de estados em uma activity - salvando e restaurando esse estado
+
+- O gerenciamento de estado em uma Activity no Android é crucial para preservar e restaurar o estado da interface do usuário quando ocorrem eventos como rotações de tela ou mudanças de configuração.
+- Uma mudança na configuração (por exemplo, rotação do dispositivo) pode causar a destruição e reconstrução da Activity, o que requer o uso de métodos como onSaveInstanceState() para manter o estado.
+- Para dados mais complexos ou persistentes, considere o uso de bancos de dados locais (como Room para SQLite) ou SharedPreferences.
+
+Essas práticas ajudam a garantir uma experiência consistente para o usuário, preservando o estado da interface do usuário mesmo quando ocorrem eventos que afetam a vida da Activity.
+
+### Principais métodos e técnicas utilizadas para realizar esse gerenciamento:
+
+Salvando Estado
+
+1. onSaveInstanceState(Bundle outState)
+
+- Este método é chamado antes da Activity ser destruída, dando a oportunidade de salvar informações importantes para um Bundle.
+- Bundle é um dicionário para armazenar e transmitir informações de estado e objetos entre Activity.
+- Você pode usar put métodos no Bundle para salvar dados primitivos ou objetos serializáveis.
+
+Restaurando Estado
+
+2. onCreate(Bundle savedInstanceState)
+
+- Quando a Activity é recriada após uma mudança de configuração, o Bundle savedInstanceState é fornecido para restaurar o estado anterior.
+- Verifique se savedInstanceState não é nulo antes de tentar restaurar valores, para evitar NullPointerException.
+
+Ciclo de Vida
+
+3. onRestoreInstanceState(Bundle savedInstanceState)
+
+- Este método é chamado depois de onStart() quando existe um estado salvo para ser restaurado, mas não é amplamente usado porque a restauração geralmente é feita dentro de onCreate().
+
+## Navegação entre activities
