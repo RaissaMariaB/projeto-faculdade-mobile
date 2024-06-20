@@ -30,7 +30,7 @@ usuário interativas. <br/>
 Este grupo é composto pelos alunos:
 
 Raissa Maria Silva Barata Pereira ✨
-- E-mail: raissaamria.sb@gmail.com
+- E-mail: raissamaria.sb@gmail.com
 - [LinkedIn](https://www.linkedin.com/in/raissa-barata-pereira)
 - [GitHub](https://github.com/RaissaMariaB)
 <br>
@@ -228,4 +228,4 @@ executando apenas Info logs.
 2. [O que é uma activity?]https://www.youtube.com/watch?v=9Y2KBJFZLZs
 3. [ciclo de vida de uma activity]https://www.youtube.com/watch?v=dJ1U6MzEwKA
 4. [imagem do ciclo de vida]https://pt.slideshare.net/slideshow/ciclo-de-vida-de-uma-activity/16390547
-5. [Documnetação oficial android]https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=pt-br#0
+5. [Documentação oficial android]https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=pt-br#0
