@@ -204,9 +204,13 @@ mas não é amplamente usado porque a restauração geralmente é feita dentro d
 ## Melhores práticas - Uso de Fragments para uma gestão flexível de UI
 
 ## Conclusão
-Nesse projeto/trabanho, conhecemos um pouco sobre o que são Activitys no Android e como elas funcionam.
-Vimos também o que é o ciclo de vida da Activity, quais são e como funcionam os métodos de callback que
-compõem esse ciclo.
+Neste trabalho, abordamos a implementação de Activities no Android com Kotlin. Explicamos como uma Activity
+combina arquivos Kotlin e XML para formar a interface do usuário e destacamos os principais métodos do ciclo de vida
+(onCreate(), onStart(), onResume(), onPause(), onStop(), onRestart(), onDestroy()) que permitem gerenciar seu estado.
+
+Também discutimos a navegação entre Activities usando Intents e o conceito de pilha de atividades.
+Além disso, exploramos técnicas para salvar e restaurar estados da Activity durante mudanças de configuração.
+
 E, por fim, ainda aprendemos a visualizar essas etapas do ciclo de vida através dos logs.
 
 ## Informações gerais sobre o projeto
