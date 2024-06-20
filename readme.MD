@@ -42,9 +42,9 @@ Laila Maria Silva Pereira ✨
 <br>
 
 Dyeggo Bezerra ✨
-- E-mail: raissaamria.sb@gmail.com
-- [LinkedIn](https://www.linkedin.com/in/raissa-barata-pereira)
-- [GitHub](https://github.com/RaissaMariaB)
+- E-mail: dyeggo0201@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/dyeggo-bezerra-0518211b1/)
+- [GitHub](https://github.com/dyeggoSilva)
   <br>
 
 
