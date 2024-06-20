@@ -247,7 +247,7 @@ No layout da atividade (por exemplo, activity_main.xml), adicione um FrameLayout
 No código da atividade, use o FragmentManager para adicionar o fragmento ao contêiner definido no layout da atividade. Isso é feito 
 criando uma transação de fragmento e comprometendo-a.
 
-##### Comunicação do Fragment
+#### Comunicação do Fragment
 
 Para reutilizar fragmentos, crie-os como componentes independentes que definem seu próprio layout e comportamento. Depois de definir esses fragmentos reutilizáveis, você pode associá-los a uma atividade e conectá-los à lógica do aplicativo para criar a interface completa.
 Para aumentar a reutilização dos Fragments, eles nunca devem se comunicar diretamente uns com os outros. Toda comunicação deve ser feita através da Activity pai. Para isso, 
@@ -257,7 +257,7 @@ No método onAttach(), você deve verificar se a Activity implementa corretament
 
 A biblioteca Fragment oferece duas opções de comunicação: um ViewModel compartilhado e a API Fragment Result. A opção recomendada depende do caso de uso. Para compartilhar dados persistentes com APIs personalizadas, use um ViewModel. Para conferir um resultado único com dados que podem ser colocados em um Bundle, use a API Fragment Result.
 
-###### Transações do Fragment 
+#### Transações do Fragment 
 
 Durante a execução, o FragmentManager pode adicionar, remover, substituir e realizar outras ações com fragments em resposta à interação do usuário. Cada conjunto de mudanças confirmado é chamado de transação. Você pode definir o que será feito na transação usando as APIs da classe FragmentTransaction. Várias ações podem ser agrupadas em uma única transação. Por exemplo, uma transação pode adicionar ou substituir vários fragments ao mesmo tempo. Isso é útil quando há vários fragments exibidos na mesma tela, como em visualizações divididas.
 
