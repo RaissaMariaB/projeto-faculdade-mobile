@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import br.com.projetoviacepfaculdade.databinding.ActivityMainBinding
-
+const val tag = "main"
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy {
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.i("teste", "onCreate")
+        Log.i(tag, "onCreate")
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -34,11 +34,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onStart() {
-        Log.i(MainActivity::class.java.simpleName, "onStart")
+        Log.d("main", "onStart")
 
         super.onStart()
     }
 
+    override fun onResume() {
+        super.onResume()
+        Log.d(tag, "onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(tag, "onPause: ")
+    }
+    override fun onStop() {
+        super.onStop()
+        Log.d(tag, "onStop: ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(tag, "onDestroy: ")
+    }
     inner class MinhaClasse: Thread() {
          override  fun run()  {
              super.run()

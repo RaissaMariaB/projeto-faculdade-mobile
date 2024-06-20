@@ -204,6 +204,10 @@ mas não é amplamente usado porque a restauração geralmente é feita dentro d
 ## Melhores práticas - Uso de Fragments para uma gestão flexível de UI
 
 ## Conclusão
+Nesse projeto/trabanho, conhecemos um pouco sobre o que são Activitys no Android e como elas funcionam.
+Vimos também o que é o ciclo de vida da Activity, quais são e como funcionam os métodos de callback que
+compõem esse ciclo.
+E, por fim, ainda aprendemos a visualizar essas etapas do ciclo de vida através dos logs.
 
 ## Informações gerais sobre o projeto
 
