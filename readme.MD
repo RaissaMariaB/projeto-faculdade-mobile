@@ -36,9 +36,9 @@ Raissa Maria Silva Barata Pereira ✨
 <br>
 
 Laila Maria Silva Pereira ✨
-- E-mail: raissaamria.sb@gmail.com
-- [LinkedIn](https://www.linkedin.com/in/raissa-barata-pereira)
-- [GitHub](https://github.com/RaissaMariaB)
+- E-mail: lailamaria.sp@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/laila-pereira-a171a224a/)
+- [GitHub](https://github.com/LailaPereira)
 <br>
 
 Dyeggo Bezerra ✨
@@ -203,6 +203,68 @@ mas não é amplamente usado porque a restauração geralmente é feita dentro d
 
 ## Melhores práticas - Uso de Fragments para uma gestão flexível de UI
 
+Um Fragment representa uma parte reutilizável da IU do seu app. Um fragmento define e gerencia o próprio layout, tem o próprio ciclo de vida e pode processar os próprios eventos de entrada. Os fragmentos não podem existir sozinhos. Eles precisam ser hospedados por uma activity ou por outro fragmento. A hierarquia de visualização do fragmento se torna parte da hierarquia de visualização do host ou é anexada a ela .
+
+Os eventos básicos do ciclo de vida de um Fragment são muito semelhantes as de uma Activity. À medida que o ciclo de vida executa os eventos como onStart, onResume, onPause e onStop, esses mesmos eventos serão acionados dentro do próprio Fragment, sendo assim possível mover a implementação feita nesses eventos da Activity para o Fragment sem muitos problemas.
+
+### Ciclo de vida de um Fragment
+
+- onCreate View
+Ao invés de construir sua interface no onCreate, utilizamos o evento onCreateView do Fragment para isso. O onCreateView é onde você constrói ou 
+infla sua interface, faz conexão com alguma fonte de dados e retorna à Activity pai para poder integrá-lo em sua hierarquia de Views.
+
+- onDestroyView
+O onDestroyView é correspondente ao onDestroy da Activity e é chamado imediatamente antes do Fragment ser destruido. Ele funciona 
+independente da Activity pai. Aqui é onde você deve limpar quaisquer recursos especificamente relacionados à interface, 
+como bitmaps na memória, cursores de dados, para garantir que não haja problemas de memória.
+
+- onAttach
+O onAttach é onde podemos obter uma referência para a Activity pai.
+
+- onDetach
+O onDetach é a última coisa que acontece no ciclo de vida, mesmo após o seu Fragment ser tecnicamente destruído.
+
+- onActivityCreated
+Isso notifica nosso Fragment que a Activity pai completou seu ciclo no onCreate e é aqui que podemos interagir com segurança com a interface de usuário.
+
+- onStop
+Assim como no ciclo de vida da Activity, uma vez que o Fragment não está mais visível, há uma chance dele ser encerrado. Isso pode acontecer,
+após o onStop, no caso de a Activity ser encerrada, pois o Fragment faz parte da sua hierarquia de Views ou após o onDestroyView.
+
+#### Como criar um Fragment?
+
+1. Crie uma nova classe de fragmento:
+Para criar um Fragment você precisa estender a classe Fragment ou uma de suas subclasses. As subclasses mais comuns utilizadas são, por exemplo, ListFragment, 
+DialogFragment ou PreferenceFragmentCompat. Dentro dessa classe, sobrescreva o método onCreateView para definir o layout do fragmento.
+
+2. Crie o layout do fragmento:
+Crie um arquivo XML no diretório res/layout para definir o layout do fragmento. Esse arquivo conterá os elementos da interface que você deseja exibir no fragmento.
+
+3. Adicione o fragmento à atividade:
+No layout da atividade (por exemplo, activity_main.xml), adicione um FrameLayout ou outro contêiner onde o fragmento será inserido.
+
+4. Inicie o fragmento na atividade:
+No código da atividade, use o FragmentManager para adicionar o fragmento ao contêiner definido no layout da atividade. Isso é feito 
+criando uma transação de fragmento e comprometendo-a.
+
+##### Comunicação do Fragment
+
+Para reutilizar fragmentos, crie-os como componentes independentes que definem seu próprio layout e comportamento. Depois de definir esses fragmentos reutilizáveis, você pode associá-los a uma atividade e conectá-los à lógica do aplicativo para criar a interface completa.
+Para aumentar a reutilização dos Fragments, eles nunca devem se comunicar diretamente uns com os outros. Toda comunicação deve ser feita através da Activity pai. Para isso, 
+um Fragment deve definir uma Interface interna. O Fragment requer que a Activity, que o usa, implemente essa Interface. Desta forma você evita que o Fragment fique dependente da Acitivty que o usa.
+
+No método onAttach(), você deve verificar se a Activity implementa corretamente essa Interface. Por exemplo, suponha que você tenha um Fragment que precise se comunicar com outro Fragment ou com sua Activity pai quando um determinado item é selecionado, primeiro você defini uma Interface internamente no Fragment e implementa o método onAttach() para guardar uma instância da Interface e verificar a compatibilidade, e depois você deve implementar essa Interface na Activity.
+
+A biblioteca Fragment oferece duas opções de comunicação: um ViewModel compartilhado e a API Fragment Result. A opção recomendada depende do caso de uso. Para compartilhar dados persistentes com APIs personalizadas, use um ViewModel. Para conferir um resultado único com dados que podem ser colocados em um Bundle, use a API Fragment Result.
+
+###### Transações de fragmentos 
+
+Durante a execução, o FragmentManager pode adicionar, remover, substituir e realizar outras ações com fragments em resposta à interação do usuário. Cada conjunto de mudanças confirmado é chamado de transação. Você pode definir o que será feito na transação usando as APIs da classe FragmentTransaction. Várias ações podem ser agrupadas em uma única transação. Por exemplo, uma transação pode adicionar ou substituir vários fragments ao mesmo tempo. Isso é útil quando há vários fragments exibidos na mesma tela, como em visualizações divididas.
+
+Além disso, cada transação pode ser salva em uma pilha de retorno gerenciada pelo FragmentManager, permitindo que o usuário volte para as mudanças de fragments anteriores, semelhante à navegação entre atividades.
+
+Para obter uma instância de FragmentTransaction do FragmentManager, basta chamar beginTransaction().
+
 ## Conclusão
 Neste trabalho, abordamos a implementação de Activities no Android com Kotlin. Explicamos como uma Activity
 combina arquivos Kotlin e XML para formar a interface do usuário e destacamos os principais métodos do ciclo de vida
@@ -229,3 +291,4 @@ executando apenas Info logs.
 3. [ciclo de vida de uma activity]https://www.youtube.com/watch?v=dJ1U6MzEwKA
 4. [imagem do ciclo de vida]https://pt.slideshare.net/slideshow/ciclo-de-vida-de-uma-activity/16390547
 5. [Documentação oficial android]https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=pt-br#0
+6. [Fragment]https://developer.android.com/guide/fragments?hl=pt-br
