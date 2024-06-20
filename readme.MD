@@ -72,7 +72,9 @@ estado do aplicativo seja mantido de forma consistente.
 
 #### Quais configurações podemos colocar quando criamos uma activity?
 
+
 <img src='./assets/configurations.png '>
+
 
 - O primeiro campo Define o nome da sua activity. Como foi citado anteriormente, temos como
 prática manter o nome activity no fim.
@@ -82,7 +84,6 @@ prática manter o nome activity no fim.
 chamada para a abertura do seu aplicativo.
 - No dropdown de "package name" podemos selecionar o local do dosso projeto onde aquela activity será criada.
 - A campo de source language permite a escolha da linguagem a ser utilizada, pois em um projeto android, pode ser kotlin e/ou java.
-
 
 
 ## Métodos e estados do ciclo de vida
@@ -137,6 +138,17 @@ Quando o usuário pressiona o botão de voltar, a Activity atual é destruída e
 fazendo com que a Activity anterior na pilha se torne a Activity ativa. Se o usuário continuar
 pressionando o botão de voltar até que a pilha de Activities esteja vazia, o aplicativo é finalizado.
 
+Nós usamos o método startActivity() para para abrir uma nova activity.
+Esse método precisa receber uma Intent como parâmetro, que traduzindo ao pé da letra seria realmente 
+uma intenção de resolver ou fazer algo.
+
+<img src='./assets/navegacaometodo.png '>
+
+O primeiro parâmetro corresponde a classe Intent que precisamos instanciar, que recebe um contexto,  
+que é um ponto de acesso as informações globais do seu app e como segundo parâmetro recebe a classe
+correspondente a tela que queremos navegar .
+
+
 👉 Conceitos importantes sobre esse gerenciamento de Pilhas
 
 - Task e Back Stack:
@@ -189,15 +201,23 @@ Ciclo de Vida
 - Este método é chamado depois de onStart() quando existe um estado salvo para ser restaurado, 
 mas não é amplamente usado porque a restauração geralmente é feita dentro de onCreate().
 
+## Melhores práticas - Uso de Fragments para uma gestão flexível de UI
 
-
-
+## Conclusão
 
 ## Informações gerais sobre o projeto
 
-- Nós temos básica de apenas duas telas 
-- Este projeto tem como objetivo mostrar a linha do tempo que a execução dos métodos do ciclo de 
-vida de uma activity ocorrem.
-- Essa verificação ocorre com a sobrescrita dos métodos do ciclo de vida que executan Info logs.
-- Você pode baixar e executar tranquilamente na sua máquina, verificando esses ciclos.
+- Nós realizamos o básico necessário para visualizar alguns contextos abordados neste ReadMe
+- Para observar o ciclo de vida das activities realizamos a sobrescrita dos métodos chamados nesse processo 
+executando apenas Info logs.
+- Podemos observar também a execução e declaração do método necessário para navegação entre activities.
+- Você pode baixar e executar tranquilamente na sua máquina, verificando os pontos acima.
 
+
+## Referências de estudo
+
+1. [Curso Udemy]https://www.udemy.com/course/desenvolvimento-android-completo/
+2. [O que é uma activity?]https://www.youtube.com/watch?v=9Y2KBJFZLZs
+3. [ciclo de vida de uma activity]https://www.youtube.com/watch?v=dJ1U6MzEwKA
+4. [imagem do ciclo de vida]https://pt.slideshare.net/slideshow/ciclo-de-vida-de-uma-activity/16390547
+5. [Documnetação oficial android]https://developer.android.com/codelabs/basic-android-kotlin-compose-activity-lifecycle?hl=pt-br#0
