@@ -17,7 +17,7 @@ usuário interativas. <br/>
 3. Navegação entre activities 
 4. Como ocorre o gerenciamento de estados em uma activity - salvando e restaurando esse estado
 5. Melhores práticas - Uso de Fragments para uma gestão flexível de UI
-6. Vídeo gravado pelos alunos com monitoramento via LogCat da sobrescrita dos métodos do ciclo de vida para análise em um aplicativo real
+6. Monitoramento via LogCat da sobrescrita dos métodos do ciclo de vida para análise em um aplicativo real
 7. Conclusão
 8. Referências de estudo
 
