@@ -13,14 +13,13 @@ usuário interativas. <br/>
 ## SUMÁRIO:
 
 1. Introdução 
-2. Diagramas e estados do ciclo de vida 
-3. Métodos do ciclo de vida 
+2. Métodos e estados do ciclo de vida 
+3. Navegação entre activities 
 4. Como ocorre o gerenciamento de estados em uma activity - salvando e restaurando esse estado
-5. Navegação entre activities 
-6. Melhores práticas - Uso de Fragments para uma gestão flexível de UI
-7. Vídeo gravado pelos alunos com monitoramento via LogCat da sobrescrita dos métodos do ciclo de vida para análise em um aplicativo real
-8. Conclusão
-9. Referências de estudo
+5. Melhores práticas - Uso de Fragments para uma gestão flexível de UI
+6. Vídeo gravado pelos alunos com monitoramento via LogCat da sobrescrita dos métodos do ciclo de vida para análise em um aplicativo real
+7. Conclusão
+8. Referências de estudo
 
 <br>
 
@@ -62,8 +61,8 @@ A pesar de ser possível criar um arquivo sem o outro, não é algo rotineiro ne
 <br/>
 <img src='./assets/activity1.png '>
 <br/>
-Dica! Como boas prática na nomenclatura de uma activity, colocamos o nome activity ao fim. 
-Ex: detalhesActivity
+👉 Dica! Como boas prática na nomenclatura de uma activity, colocamos o nome activity ao fim. 
+Ex: DetalhesActivity
 
 Um aplicativo pode ter várias Activities para diferentes propósitos, como por exemplo criar um email ou ler um email.
 E apesar de operarem de forma independente, elas trabalham juntas para formar a experiência do usuário.
@@ -79,14 +78,14 @@ estado do aplicativo seja mantido de forma consistente.
 prática manter o nome activity no fim.
 - A primeira marcação de checkBox indica que vamos criar nosso arquivo de layout XML em conjunto.
 - O campo "layout name" indica o nome desse arquivo de layout que está sendo criado.
-- O segundo checkBox com "Launcher Activity", indica que essa será a primiera activity 
+- O segundo checkBox com "Launcher Activity", indica que essa será a primeira activity 
 chamada para a abertura do seu aplicativo.
 - No dropdown de "package name" podemos selecionar o local do dosso projeto onde aquela activity será criada.
-- A campo de source language permite a escolha da linguagem a ser utilizada,pois em um projeto android, pode ser kotlin e/ou java.
+- A campo de source language permite a escolha da linguagem a ser utilizada, pois em um projeto android, pode ser kotlin e/ou java.
 
 
-## Imagem com diagrama, detalhes e estados do ciclo de vida de uma acitvity
 
+## Métodos e estados do ciclo de vida
 O ciclo de vida de uma Activity no Android é um conjunto de estados pelos quais a Activity passa 
 desde o momento de sua criação até sua destruição. Esses estados são gerenciados por callbacks que 
 o sistema chama, permitindo que o desenvolvedor saiba qual estado a Activity está e prepare a 
@@ -94,44 +93,77 @@ aplicação para executar certas ações. Entender como as Activities são criad
 retomadas e destruídas é cruacial para criar uma navegação eficiente.
 
 
+<img src='./assets/ciclodevida.png '>
 
 
-## Métodos do ciclo de vida
-
-  ```
-     onCreate() -> onStart() -> onResume() -> Activity em execução
-        ^            |             |              |
-        |            |             |              |
-        |            v             v              v
-        |          onStop() <- onPause() <- Activity pausada
-        |              |                          |
-        |              |                          |
-        |              v                          |
-        |          onRestart() -------------------
-        |              |
-        v              v
-    onDestroy() <- Activity sendo finalizada
-
-   ```
-
-####  Lista com nomes dos métodos em cada etapa de forma sucinta
-
+#### Detalhando os métodos
 - onCreate(): Inicializa uma activity
+No primeiro momento quando abrimos uma aplicação, ocorre a execução do método onCreate que é chamado 
+apenas uma vez durante seu ciclo de vida. Nesse momento a activity jecontra-se no estado de created,
+onde ela foi criada mas ainda não se encontra visível para o usuário.
+
 - onStart(): Torna a activity visível para o usuário 
-- onResume(): Coloca uma Activity em primiero plano e interativa
+Quando o método onStart é chamado a activity entra no estado de "Started", significa que ela pode 
+estar visíviel para o usuário mas não necessariamente em primeiro plano.
+
+- onResume(): Coloca uma Activity em primeiro plano e interativa
+O estado da activity nesse momento é chamado de "Resumed", é a retomada de uma activity.
+Ela permanece nesse estado enuqanto encontra-se ativa.
+
 - onPause(): Preparação para pausar uma activity
+Caso outra activity entre em primeiro plano,  o método onPause()  é chamado e a activity atual entra 
+no estado de "Paused". Ela ainda continua visível, porém não se encontra mais no primeiro plano.
+
 - onStop(): Activity não mais visível
+A Activity entra no estado "Stopped", que significa que ela está completamente invisivel para
+o usuário porém ainda viva no sistema.
+
 - onRestart(): Preparando para retomar uma activity
+
 - onDestroy(): Limpeza final de uma activity
+Uma activity pode entrar nesse estado tanto pela chamada do método finish() ou pelo próprio sistema
+para recuperar recursos, ea entra no modo de "Destroyed", logo após a chamada do método onDestroy().
+Nesse momento ela é removida da memória, sendo totalmente destruída.
+
+
+## Navegação entre activities
+
+Um ponto importante sobre as activitys é saber como funciona o seu gerenciamento, que ocorre baseado no conceito
+de computação chamado LIFO (last in first out) ou Pilha, em Português. Isso significa que a última
+
+Quando uma nova Activity é iniciada, o sistema a coloca no topo da pilha de Activities do aplicativo.
+Essa Activity se torna a Activity ativa - a Activity que o usuário pode interagir.
+Quando o usuário pressiona o botão de voltar, a Activity atual é destruída e removida do topo da pilha,
+fazendo com que a Activity anterior na pilha se torne a Activity ativa. Se o usuário continuar
+pressionando o botão de voltar até que a pilha de Activities esteja vazia, o aplicativo é finalizado.
+
+👉 Conceitos importantes sobre esse gerenciamento de Pilhas
+
+- Task e Back Stack:
+Uma task é um conjunto de activities,  qu eo usuário vai interagir para executar uma ação e cada tem
+sua própria pilha de activities, as back stacks.
+
+- Multi-tarefa: O android permite que o usuário navegue entre tarefas, na prática isso quer dizer que 
+o usuário pode sair de um aplicativo para iniciar ou retornar a outro e em seguida, voltar ao
+aplicativo original, retomando a partir de onde parou. 
+
+- Gerenciamneto de estado:
+Os estado das Activities devem ser gerenciados adequadamente ao navegar entre as Activies,
+especialmente considerando que o sistema pode destruir Activities em segundo plano para recuperar recursos.
 
 
 ## Como ocorre o gerenciamento de estados em uma activity - salvando e restaurando esse estado
 
-- O gerenciamento de estado em uma Activity no Android é crucial para preservar e restaurar o estado da interface do usuário quando ocorrem eventos como rotações de tela ou mudanças de configuração.
-- Uma mudança na configuração (por exemplo, rotação do dispositivo) pode causar a destruição e reconstrução da Activity, o que requer o uso de métodos como onSaveInstanceState() para manter o estado.
-- Para dados mais complexos ou persistentes, considere o uso de bancos de dados locais (como Room para SQLite) ou SharedPreferences.
+- O gerenciamento de estado em uma Activity no Android é crucial para preservar e restaurar o estado 
+da interface do usuário quando ocorrem eventos como rotações de tela ou mudanças de configuração.
+- Uma mudança na configuração (por exemplo, rotação do dispositivo) pode causar a destruição e 
+reconstrução da Activity, o que requer o uso de métodos como onSaveInstanceState() para manter o estado.
+- Para dados mais complexos ou persistentes, considere o uso de bancos de dados locais 
+(como Room para SQLite) ou SharedPreferences.
 
-Essas práticas ajudam a garantir uma experiência consistente para o usuário, preservando o estado da interface do usuário mesmo quando ocorrem eventos que afetam a vida da Activity.
+Essas práticas ajudam a garantir uma experiência consistente para o usuário, preservando o estado da
+interface do usuário mesmo quando ocorrem eventos que afetam a vida da Activity.
+
 
 ### Principais métodos e técnicas utilizadas para realizar esse gerenciamento:
 
@@ -154,10 +186,10 @@ Ciclo de Vida
 
 3. onRestoreInstanceState(Bundle savedInstanceState)
 
-- Este método é chamado depois de onStart() quando existe um estado salvo para ser restaurado, mas não é amplamente usado porque a restauração geralmente é feita dentro de onCreate().
+- Este método é chamado depois de onStart() quando existe um estado salvo para ser restaurado, 
+mas não é amplamente usado porque a restauração geralmente é feita dentro de onCreate().
 
 
-## Navegação entre activities
 
 
 
